@@ -27,10 +27,9 @@ namespace TournamentLib
         {
             // TODO: Implement this method
             List<Team> winners;
-            
 
 
-            return winners;
+            return null;
         }
 
         public List<Team> GetLosingTeams()
