@@ -26,10 +26,14 @@ namespace TournamentLib
         public List<Team> GetWinningTeams()
         {
             // TODO: Implement this method
-            List<Team> winners;
+            List<Team> winners = new List<Team>();
 
+            for(int i = 0; i < matches.Count; i++)
+            {
+                winners[i] = matches[i].Winner;
+            }
 
-            return null;
+            return winners;
         }
 
         public List<Team> GetLosingTeams()
