@@ -35,7 +35,6 @@ namespace TournamentLib
                     done = false;
                 }
             }
-
             return done;
         }
 
@@ -70,7 +69,6 @@ namespace TournamentLib
                     losers.Add(m.FirstOpponent);
                 }
             }
-
             return losers;
         }
     }
