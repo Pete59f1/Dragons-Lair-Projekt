@@ -37,8 +37,8 @@ namespace DragonsLair
                     Team holder = winningTeams[i];
                     winningTeams[i] = winningTeams[j];
                     winningTeams[j] = holder;
-                    j++;
                 }
+                j++;
             }
 
             foreach(Team i in winningTeams)
