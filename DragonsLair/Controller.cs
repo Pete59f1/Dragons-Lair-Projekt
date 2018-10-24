@@ -23,12 +23,11 @@ namespace DragonsLair
             List<Team> winningTeams;
             int rounds = t.GetNumberOfRounds();
 
-            for(int i = 0; i <= rounds; i++)
+            for(int i = 1; i == rounds; i++)
             {
                 currentRound = t.GetRound(i);
                 winningTeams = currentRound.GetWinningTeams();
             }
-
         }
 
         public void ScheduleNewRound(string tournamentName, bool printNewMatches = true)
