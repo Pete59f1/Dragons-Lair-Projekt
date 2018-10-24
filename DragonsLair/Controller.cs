@@ -30,7 +30,7 @@ namespace DragonsLair
             }
 
             int j = 1;
-            for(int i = 0; i < winningTeams.Count; i++)
+            /*for(int i = 0; i < winningTeams.Count; i++)
             {
                 if(winningTeams[i] < winningTeams[j])
                 {
@@ -39,7 +39,7 @@ namespace DragonsLair
                     winningTeams[j] = holder;
                 }
                 j++;
-            }
+            }*/
 
             foreach(Team i in winningTeams)
             {

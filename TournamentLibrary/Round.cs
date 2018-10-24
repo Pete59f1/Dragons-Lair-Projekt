@@ -13,8 +13,15 @@ namespace TournamentLib
 
         public Match GetMatch(string teamName1, string teamName2)
         {
-            // TODO: Implement this method
-            return null;
+            Match mat = new Match();
+            foreach(Match m in matches)
+            {
+                if (m.FirstOpponent.ToString() == teamName1 && m.SecondOpponent.ToString() == teamName2)
+                {
+                    mat = m;
+                }
+            }
+            return mat;
         }
 
         public bool IsMatchesFinished()
@@ -32,7 +39,6 @@ namespace TournamentLib
             {
                 winners[i] = matches[i].Winner;
             }
-
             return winners;
         }
 
