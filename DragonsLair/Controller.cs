@@ -29,6 +29,18 @@ namespace DragonsLair
                 winningTeams = currentRound.GetWinningTeams();
             }
 
+            int j = 1;
+            for(int i = 0; i < winningTeams.Count; i++)
+            {
+                if(winningTeams[i] < winningTeams[j])
+                {
+                    Team holder = winningTeams[i];
+                    winningTeams[i] = winningTeams[j];
+                    winningTeams[j] = holder;
+                    j++;
+                }
+            }
+
             foreach(Team i in winningTeams)
             {
                 Console.WriteLine(i);
