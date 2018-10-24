@@ -28,6 +28,11 @@ namespace DragonsLair
                 currentRound = t.GetRound(i);
                 winningTeams = currentRound.GetWinningTeams();
             }
+
+            foreach(Team i in winningTeams)
+            {
+                Console.WriteLine(i);
+            }
         }
 
         public void ScheduleNewRound(string tournamentName, bool printNewMatches = true)
