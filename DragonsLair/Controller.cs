@@ -23,13 +23,13 @@ namespace DragonsLair
             List<Team> winningTeams = new List<Team>();
             int rounds = t.GetNumberOfRounds();
 
-            for(int i = 1; i == rounds; i++)
+            for(int i = 0; i < rounds; i++)
             {
                 currentRound = t.GetRound(i);
-                winningTeams = currentRound.GetWinningTeams();
+                winningTeams.Add(currentRound.GetWinningTeams());
             }
 
-            int j = 1;
+            //int j = 1;
             /*for(int i = 0; i < winningTeams.Count; i++)
             {
                 if(winningTeams[i] < winningTeams[j])
