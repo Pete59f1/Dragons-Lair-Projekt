@@ -26,7 +26,7 @@ namespace DragonsLair
             for(int i = 0; i < rounds; i++)
             {
                 currentRound = t.GetRound(i);
-                winningTeams.Add(currentRound.GetWinningTeams());
+                winningTeams.Add(currentRound.GetWinningTeams()[i]);
             }
 
             //int j = 1;
