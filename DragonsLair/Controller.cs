@@ -20,7 +20,7 @@ namespace DragonsLair
             Tournament t;
             t = tournamentRepository.GetTournament(tournamentName);
             Round currentRound;
-            List<Team> winningTeams;
+            List<Team> winningTeams = new List<Team>();
             int rounds = t.GetNumberOfRounds();
 
             for(int i = 1; i == rounds; i++)
