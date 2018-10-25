@@ -11,12 +11,6 @@ namespace DragonsLair
 
         public void ShowScore(string tournamentName)
         {
-            /*
-             * TODO: Calculate for each team how many times they have won
-             * Sort based on number of matches won (descending)
-             */
-            //Console.WriteLine("Implement this method!");
-
             Tournament t;
             t = tournamentRepository.GetTournament(tournamentName);
             Round currentRound;
@@ -28,19 +22,7 @@ namespace DragonsLair
                 currentRound = t.GetRound(i);
                 winningTeams.Add(currentRound.GetWinningTeams()[i]);
             }
-
-            //int j = 1;
-            /*for(int i = 0; i < winningTeams.Count; i++)
-            {
-                if(winningTeams[i] < winningTeams[j])
-                {
-                    Team holder = winningTeams[i];
-                    winningTeams[i] = winningTeams[j];
-                    winningTeams[j] = holder;
-                }
-                j++;
-            }*/
-
+            
             foreach(Team i in winningTeams)
             {
                 Console.WriteLine(i);
