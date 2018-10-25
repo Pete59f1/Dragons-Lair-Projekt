@@ -53,18 +53,15 @@ namespace TournamentLib
         {
             // TODO: Implement this method
             List<Team> losers = new List<Team>();
-            List<Team> winners = new List<Team>();
 
             foreach(Match m in matches)
             {
                 if(m.Winner == m.FirstOpponent)
                 {
-                    winners.Add(m.FirstOpponent);
                     losers.Add(m.SecondOpponent);
                 }
                 else
                 {
-                    winners.Add(m.SecondOpponent);
                     losers.Add(m.FirstOpponent);
                 }
             }
