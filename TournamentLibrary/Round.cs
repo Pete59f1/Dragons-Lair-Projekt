@@ -27,15 +27,14 @@ namespace TournamentLib
         public bool IsMatchesFinished()
         {
             // TODO: Implement this method
-            bool done = true;
             for(int i = 0; i < matches.Count; i++)
             {
                 if(matches[i].Winner == null)
                 {
-                    done = false;
+                    return false;
                 }
             }
-            return done;
+            return true;
         }
 
         public List<Team> GetWinningTeams()
