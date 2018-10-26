@@ -4,6 +4,18 @@ namespace TournamentLib
 {
     public class Round
     {
+        private string freerider;
+        public Team FreeRider
+        {
+            get
+            {
+                return freerider;
+            }
+            set
+            {
+                freerider = value;
+            }
+        }
         private List<Match> matches = new List<Match>();
         
         public void AddMatch(Match m)
