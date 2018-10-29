@@ -57,6 +57,70 @@ namespace DragonsLair
         {
             // Do not implement this method
 
+            Tournament t;
+            t = tournamentRepository.GetTournament(tournamentName);
+            int numberOfRounds = t.GetNumberOfRounds();
+            List<Team> teams = new List<Team>();
+            Round lastRound;
+            bool isRoundFinished;
+            Team oldFreerider;
+            Team newFreerider = null;
+
+            if (numberOfRounds == 0)
+            {
+                lastRound = null;
+                isRoundFinished = true;
+            }
+            else
+            {
+                lastRound = t.GetRound(numberOfRounds - 1);
+                isRoundFinished = lastRound.IsMatchesFinished();
+            }
+
+            if(isRoundFinished == true)
+            {
+                if(lastRound == null)
+                {
+                    teams = t.GetTeams();
+                }
+                else
+                {
+                    teams = lastRound.GetWinningTeams();
+                }
+
+                if (lastRound.FreeRider != null)
+                {
+                    teams.Add(lastRound.FreeRider);
+                }
+
+                if(teams.Count >= 2)
+                {
+                    Round newRound = new Round();
+
+                    if(teams.Count % 2 != 0)
+                    {
+                        if(numberOfRounds > 0)
+                        {
+                            oldFreerider = lastRound.FreeRider;
+                        }
+                        else
+                        {
+                            oldFreerider = null;
+                        }
+
+                        while(newFreerider == oldFreerider)
+                        {
+                            int i = 0;
+                            newFreerider = teams[i];
+                            i++;
+                        }
+
+                        newRound.FreeRider = newFreerider;
+                    }
+
+                }
+            }
+
 
         }
 
