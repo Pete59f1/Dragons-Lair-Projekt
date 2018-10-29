@@ -48,6 +48,11 @@ namespace DragonsLair
             Console.WriteLine("\n");
         }
 
+        public TournamentRepo GetTournamentRepository()
+        {
+            return tournamentRepository;
+        }
+
         public void ScheduleNewRound(string tournamentName, bool printNewMatches = true)
         {
             // Do not implement this method
