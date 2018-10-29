@@ -135,8 +135,6 @@ namespace DragonsLair
             {
                 Console.WriteLine("Runde er ikke slut");
             }
-
-
         }
 
         public void SaveMatch(string tournamentName, int roundNumber, string team1, string team2, string winningTeam)
