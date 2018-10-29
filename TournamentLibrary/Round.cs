@@ -4,8 +4,8 @@ namespace TournamentLib
 {
     public class Round
     {
-        private string freerider;
-        public Team FreeRider
+        //private string freerider;
+        /*public Team FreeRider
         {
             get
             {
@@ -15,7 +15,7 @@ namespace TournamentLib
             {
                 freerider = value;
             }
-        }
+        }*/
         private List<Match> matches = new List<Match>();
         
         public void AddMatch(Match m)
