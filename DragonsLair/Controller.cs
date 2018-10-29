@@ -117,8 +117,23 @@ namespace DragonsLair
 
                         newRound.FreeRider = newFreerider;
                     }
-
+                    for (int i = 0, j = i + 1; i < teams.Count; i++, j++)
+                    {
+                        Match match = new Match();
+                        match.FirstOpponent = teams[i];
+                        match.SecondOpponent = teams[j];
+                        newRound.AddMatch(match);
+                    }
+                    t.AddRound(newRound);
                 }
+                else
+                {
+                    Console.WriteLine("Turnering er slut");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Runde er ikke slut");
             }
 
 
