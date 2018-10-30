@@ -53,6 +53,24 @@ namespace DragonsLair
             return tournamentRepository;
         }
 
+        private void swap(ref List<Team> list, int i, int j) //Mikkels kode
+        {
+            Team temp = list[i];
+            list[i] = list[j];
+            list[j] = temp;
+        }
+
+        private List<Team> scramble(List<Team> listToScramble) //Mikkels kode
+  		{ 
+  			Random randome = new Random(); 
+  			for (int i = 0; i<listToScramble.Count; i++) 
+  			{ 
+  				swap(ref listToScramble, i, randome.Next(0, listToScramble.Count-1)); 
+  			} 
+  			return listToScramble; 
+  		}
+
+
         public void ScheduleNewRound(string tournamentName, bool printNewMatches = true)
         {
             // Do not implement this method
@@ -61,6 +79,7 @@ namespace DragonsLair
             t = tournamentRepository.GetTournament(tournamentName);
             int numberOfRounds = t.GetNumberOfRounds();
             List<Team> teams = new List<Team>();
+            List<Team> scrambled = new List<Team>();
             Round lastRound;
             bool isRoundFinished;
             Team oldFreerider;
@@ -81,23 +100,23 @@ namespace DragonsLair
             {
                 if(lastRound == null)
                 {
-                    teams = t.GetTeams();
+                    teams = t.GetTeams().ToList();
                 }
                 else
                 {
                     teams = lastRound.GetWinningTeams();
-                }
-
-                if (lastRound.FreeRider != null)
-                {
-                    teams.Add(lastRound.FreeRider);
+                    if (lastRound.FreeRider != null)
+                    {
+                        teams.Add(lastRound.FreeRider);
+                    }
                 }
 
                 if(teams.Count >= 2)
                 {
                     Round newRound = new Round();
+                    scrambled = scramble(teams.ToList());
 
-                    if(teams.Count % 2 != 0)
+                    if(scrambled.Count % 2 != 0)
                     {
                         if(numberOfRounds > 0)
                         {
@@ -111,29 +130,34 @@ namespace DragonsLair
                         while(newFreerider == oldFreerider)
                         {
                             int i = 0;
-                            newFreerider = teams[i];
+                            newFreerider = scrambled[i];
                             i++;
                         }
-
                         newRound.FreeRider = newFreerider;
+                        scrambled.Remove(newFreerider);
                     }
-                    for (int i = 0, j = i + 1; i < teams.Count; i++, j++)
+
+                    for (int i = 0; i < scrambled.Count - 1; i += 2)
                     {
                         Match match = new Match();
-                        match.FirstOpponent = teams[i];
-                        match.SecondOpponent = teams[j];
+                        match.FirstOpponent = scrambled[i];
+                        match.SecondOpponent = scrambled[i + 1];
                         newRound.AddMatch(match);
                     }
                     t.AddRound(newRound);
+                    if(printNewMatches == true)
+                    {
+                        ShowScore(tournamentName);
+                    }
                 }
                 else
                 {
-                    throw new Exception ("TournamentIsFinished");
+                    throw new Exception ("Tournament Is Finished");
                 }
             }
             else
             {
-                throw new Exception("RoundNotFinished");
+                throw new Exception("Round Not Finished");
             }
         }
 
