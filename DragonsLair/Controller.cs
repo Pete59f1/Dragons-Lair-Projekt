@@ -128,12 +128,12 @@ namespace DragonsLair
                 }
                 else
                 {
-                    Console.WriteLine("Turnering er slut");
+                    throw new Exception ("Turnering er slut");
                 }
             }
             else
             {
-                Console.WriteLine("Runde er ikke slut");
+                throw new Exception("Runde er ikke slut");
             }
         }
 
