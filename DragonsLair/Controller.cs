@@ -13,6 +13,7 @@ namespace DragonsLair
         {
             Tournament t;
             t = tournamentRepository.GetTournament(tournamentName);
+            t.SetupTestRounds();
             List<Team> winningTeams;
             Team[] teams = t.GetTeams().ToArray();
             int[] scores = new int[teams.Length];
