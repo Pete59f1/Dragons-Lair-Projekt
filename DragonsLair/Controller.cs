@@ -128,12 +128,12 @@ namespace DragonsLair
                 }
                 else
                 {
-                    throw new Exception ("Turnering er slut");
+                    throw new Exception ("TournamentIsFinished");
                 }
             }
             else
             {
-                throw new Exception("Runde er ikke slut");
+                throw new Exception("RoundNotFinished");
             }
         }
 
