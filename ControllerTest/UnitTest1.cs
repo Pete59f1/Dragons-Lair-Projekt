@@ -80,7 +80,6 @@ namespace ControllerTest
             Match m = currentTournament.GetRound(1).GetMatch(winnerName);
             Assert.AreEqual(winnerName, m.Winner.Name);
         }
-
     }
 
 
