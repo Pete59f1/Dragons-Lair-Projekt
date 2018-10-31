@@ -36,6 +36,23 @@ namespace TournamentLib
             return mat;
         }
 
+        public Match GetMatch(string team)
+        {
+            Match mat = new Match();
+            foreach(Match m in matches)
+            {
+                if(m.FirstOpponent.ToString() == team)
+                {
+                    mat = m;
+                }
+                else if (m.SecondOpponent.ToString() == team)
+                {
+                    mat = m;
+                }
+            }
+            return mat;
+        }
+
         public bool IsMatchesFinished()
         {
             // TODO: Implement this method
