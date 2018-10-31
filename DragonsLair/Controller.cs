@@ -173,12 +173,12 @@ namespace DragonsLair
             if (m != null && m.Winner == null)
             {
                 w = t.GetTeam(winningTeamName);
-                Console.WriteLine("Den virker");
+                Console.WriteLine("Succes: Kampen mellem " + m.FirstOpponent + " og " + m.SecondOpponent + " i runde " + roundNo + " i turnering " + tournamentName + " er nu afviklet. Vinderen blev " + winningTeamName);
                 m.Winner = w;
             }
             else
             {
-                throw new Exception("Fejl");
+                Console.WriteLine("Fejl: Holdet " + winningTeamName + " kan ikke være vinder i runde " + roundNo + ", da holdet enten ikke deltager i runde " + roundNo + " eller kampen allerede er registreret med en vinder");
             }
         }
     }
