@@ -65,8 +65,8 @@ namespace DragonsLair
   			Random randome = new Random(); 
   			for (int i = 0; i<listToScramble.Count; i++) 
   			{ 
-  				swap(ref listToScramble, i, randome.Next(0, listToScramble.Count-1)); 
-  			} 
+  				swap(ref listToScramble, i, randome.Next(0, listToScramble.Count-1));
+  			}
   			return listToScramble; 
   		}
 
