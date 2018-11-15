@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TournamentLib;
 
@@ -181,5 +182,12 @@ namespace DragonsLair
                 Console.WriteLine("Fejl: Holdet " + winningTeamName + " kan ikke være vinder i runde " + roundNo + ", da holdet enten ikke deltager i runde " + roundNo + " eller kampen allerede er registreret med en vinder");
             }
         }
+        public void SaveTournament(string tournamentName)
+        {
+            StreamWriter txtWriter = new StreamWriter("Gem turneringer.txt",true);
+            txtWriter.WriteLine(tournamentName);
+            txtWriter.Close();
+        }
+       
     }
 }
