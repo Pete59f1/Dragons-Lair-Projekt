@@ -24,6 +24,7 @@ namespace TournamentLib
                     Tournament tournament = new Tournament(name);
                     return tournament;
                 }
+                txtReader.Close();
             }
             return null;
         }
