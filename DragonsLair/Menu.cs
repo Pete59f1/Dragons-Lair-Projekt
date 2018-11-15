@@ -86,7 +86,7 @@ namespace DragonsLair
         }
         private void SaveTournament()
         {
-            Console.Write("Angiv navn til ny turnering");
+            Console.Write("Angiv navn til ny turnering: ");
             string tournamentName = Console.ReadLine();
             Console.Clear();
             control.SaveTournament(tournamentName);
