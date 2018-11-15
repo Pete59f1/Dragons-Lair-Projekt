@@ -1,18 +1,31 @@
 ﻿using System.Collections.Generic;
-
+using System.IO;
 namespace TournamentLib
 {
     public class TournamentRepo
     {
-        private Tournament winterTournament = new Tournament("Vinter Turnering");
+        //private Tournament winterTournament = new Tournament("Vinter Turnering");
 
         public Tournament GetTournament(string name)
         {
-            if (name == "Vinter Turnering")
+            //if (name == "Vinter Turnering")
+            //{
+            //    return winterTournament;
+            //}
+            //return null;
+
+            StreamReader txtReader = new StreamReader("Gem turneringer.txt");
+            string line = txtReader.ReadLine();
+
+            while (line != null) 
             {
-                return winterTournament;
+                if (line == name) 
+                {
+                    private Tournament tournament = new Tournament(name);
+                    return tou
+                }
             }
-            return null;
         }
     }
 }
+    
