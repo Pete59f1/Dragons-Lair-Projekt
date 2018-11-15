@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+
 namespace TournamentLib
 {
     public class TournamentRepo
@@ -17,15 +18,15 @@ namespace TournamentLib
             StreamReader txtReader = new StreamReader("Gem turneringer.txt");
             string line = txtReader.ReadLine();
 
-            while (line != null) 
+            while (line != null)
             {
-                if (line == name) 
+                if (line == name)
                 {
-                    private Tournament tournament = new Tournament(name);
-                    return tou
+                    Tournament tour = new Tournament(name);
+                    return tour;
                 }
             }
+            return null;
         }
     }
 }
-    
