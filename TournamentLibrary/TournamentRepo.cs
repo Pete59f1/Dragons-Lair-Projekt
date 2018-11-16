@@ -17,11 +17,13 @@ namespace TournamentLib
                 {
                     if (line == "vinter turnering")
                     {
+                        txtReader.Close();
                         return winterTournament;
                     }
                     else
                     {
                         Tournament tournament = new Tournament(name);
+                        txtReader.Close();
                         return tournament;
                     }
                 }
