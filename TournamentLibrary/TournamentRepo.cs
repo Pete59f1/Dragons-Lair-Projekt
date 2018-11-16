@@ -19,8 +19,11 @@ namespace TournamentLib
                     {
                         return winterTournament;
                     }
-                    Tournament tournament = new Tournament(name);
-                    return tournament;
+                    else
+                    {
+                        Tournament tournament = new Tournament(name);
+                        return tournament;
+                    }
                 }
             }
             txtReader.Close();
