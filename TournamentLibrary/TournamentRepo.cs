@@ -4,16 +4,10 @@ namespace TournamentLib
 {
     public class TournamentRepo
     {
-        //private Tournament winterTournament = new Tournament("Vinter Turnering");
+        private Tournament winterTournament = new Tournament("Vinter Turnering");
 
         public Tournament GetTournament(string name)
         {
-            //if (name == "Vinter Turnering")
-            //{
-            //    return winterTournament;
-            //}
-            //return null;
-
             StreamReader txtReader = new StreamReader("Gem turneringer.txt");
             string line = txtReader.ReadLine();
 
@@ -21,11 +15,15 @@ namespace TournamentLib
             {
                 if (line.ToLower() == name.ToLower()) 
                 {
-                    Tournament winterTournament = new Tournament(name);
-                    return winterTournament;
+                    if (line == "vinter turnering")
+                    {
+                        return winterTournament;
+                    }
+                    Tournament tournament = new Tournament(name);
+                    return tournament;
                 }
-                txtReader.Close();
             }
+            txtReader.Close();
             return null;
         }
     }
