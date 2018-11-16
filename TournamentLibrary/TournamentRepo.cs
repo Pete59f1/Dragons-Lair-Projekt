@@ -9,9 +9,9 @@ namespace TournamentLib
         public Tournament GetTournament(string name)
         {
             StreamReader txtReader = new StreamReader("Gem turneringer.txt");
-            string line = txtReader.ReadLine();
+            string line;
 
-            while (!txtReader.EndOfStream) 
+            while ((line = txtReader.ReadLine()) != null) 
             {
                 if (line.ToLower() == name.ToLower())
                 {
