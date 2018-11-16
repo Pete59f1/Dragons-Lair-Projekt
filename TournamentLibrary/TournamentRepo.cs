@@ -19,7 +19,7 @@ namespace TournamentLib
 
             while (line != null) 
             {
-                if (line == name) 
+                if (line.ToLower() == name.ToLower()) 
                 {
                     Tournament winterTournament = new Tournament(name);
                     return winterTournament;
