@@ -21,8 +21,8 @@ namespace TournamentLib
             {
                 if (line == name) 
                 {
-                    Tournament tournament = new Tournament(name);
-                    return tournament;
+                    Tournament winterTournament = new Tournament(name);
+                    return winterTournament;
                 }
                 txtReader.Close();
             }
