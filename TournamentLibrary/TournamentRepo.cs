@@ -4,8 +4,6 @@ namespace TournamentLib
 {
     public class TournamentRepo
     {
-        private Tournament winterTournament = new Tournament("Vinter Turnering");
-
         public Tournament GetTournament(string name)
         {
             StreamReader txtReader = new StreamReader("Gem turneringer.txt");
@@ -15,17 +13,9 @@ namespace TournamentLib
             {
                 if (line.ToLower() == name.ToLower())
                 {
-                    if (line == "vinter turnering")
-                    {
-                        txtReader.Close();
-                        return winterTournament;
-                    }
-                    else
-                    {
-                        Tournament tournament = new Tournament(name);
-                        txtReader.Close();
-                        return tournament;
-                    }
+                    Tournament tournament = new Tournament(name);
+                    txtReader.Close();
+                    return tournament;
                 }
             }
             txtReader.Close();
