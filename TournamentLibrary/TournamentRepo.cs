@@ -13,7 +13,7 @@ namespace TournamentLib
 
             while (!txtReader.EndOfStream) 
             {
-                if (line.ToLower() == name.ToLower()) 
+                if (line.ToLower() == name.ToLower())
                 {
                     if (line == "vinter turnering")
                     {
