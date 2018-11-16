@@ -11,7 +11,7 @@ namespace TournamentLib
             StreamReader txtReader = new StreamReader("Gem turneringer.txt");
             string line = txtReader.ReadLine();
 
-            while (line != null) 
+            while (!txtReader.EndOfStream) 
             {
                 if (line.ToLower() == name.ToLower()) 
                 {
