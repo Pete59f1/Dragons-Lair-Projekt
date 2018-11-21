@@ -184,10 +184,66 @@ namespace DragonsLair
         }
         public void SaveTournament(string tournamentName)
         {
-            StreamWriter txtWriter = new StreamWriter("Gem turneringer.txt",true);
+            StreamWriter txtWriter = new StreamWriter("Gem turneringer.txt", true);
             txtWriter.WriteLine(tournamentName);
             txtWriter.Close();
         }
-       
+
+        public void SaveTeam(string teamName)
+        {
+            StreamWriter txtWriter = new StreamWriter("Gem hold.txt", true);
+            txtWriter.WriteLine(teamName);
+            txtWriter.Close();
+        }
+
+        public void changeTournamentName(string tournamentName, string newTournamentName)
+        {
+            string[] lines = File.ReadAllLines("Gem turneringer.txt");
+            bool found = false;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i].ToLower() == tournamentName.ToLower())
+                {
+                    lines[i] = newTournamentName;
+                    found = true;
+
+                    StreamWriter txtWriter = new StreamWriter("Gem turneringer.txt");
+                    foreach (string line in lines)
+                    {
+                        txtWriter.WriteLine(line);
+                    }
+                    txtWriter.Close();
+                }
+            }
+            if (found == false)
+            {
+                throw new Exception("Kunne ikke finde turnering");
+            }
+        }
+
+        public void changeTeamName(string teamName, string newTeamName)
+        {
+            string[] lines = File.ReadAllLines("Gem hold.txt");
+            bool found = false;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i].ToLower() == teamName.ToLower())
+                {
+                    lines[i] = newTeamName;
+                    found = true;
+
+                    StreamWriter txtWriter = new StreamWriter("Gem hold.txt");
+                    foreach (string line in lines)
+                    {
+                        txtWriter.WriteLine(line);
+                    }
+                    txtWriter.Close();
+                }
+            }
+            if (found == false)
+            {
+                throw new Exception("Kunne ikke finde hold");
+            }
+        }
     }
 }

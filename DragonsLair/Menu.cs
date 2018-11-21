@@ -30,6 +30,15 @@ namespace DragonsLair
                     case "4":
                         SaveTournament();
                         break;
+                    case "5":
+                        SaveTeam();
+                        break;
+                    case "6":
+                        changeTournamentName();
+                        break;
+                    case "7":
+                        changeTeamName();
+                        break;
                     default:
                         Console.WriteLine("Ugyldigt valg.");
                         Console.ReadLine();
@@ -46,6 +55,9 @@ namespace DragonsLair
             Console.WriteLine("2. Planlæg runde i turnering");
             Console.WriteLine("3. Registrér afviklet kamp");
             Console.WriteLine("4. Opret ny turnering");
+            Console.WriteLine("5. Opret nyt hold");
+            Console.WriteLine("6. Angiv nyt navn til turnering");
+            Console.WriteLine("7. Angiv nyt navn til hold");
             Console.WriteLine("");
             Console.WriteLine("0. Exit");
         }
@@ -90,6 +102,34 @@ namespace DragonsLair
             string tournamentName = Console.ReadLine();
             Console.Clear();
             control.SaveTournament(tournamentName);
+        }
+
+        private void SaveTeam()
+        {
+            Console.WriteLine("Angiv navn til nye hold: ");
+            string teamName = Console.ReadLine();
+            Console.Clear();
+            control.SaveTeam(teamName);
+        }
+
+        private void changeTournamentName()
+        {
+            Console.WriteLine("Angiv navn på den turnering du vil have ændret: ");
+            string tournamentName = Console.ReadLine();
+            Console.WriteLine("Hvad skal turneringen hedde nu?: ");
+            string newTournamentName = Console.ReadLine();
+            Console.Clear();
+            control.changeTournamentName(tournamentName, newTournamentName);
+        }
+
+        private void changeTeamName()
+        {
+            Console.WriteLine("Angiv navn på det hold du vil have ændret: ");
+            string teamName = Console.ReadLine();
+            Console.WriteLine("Hvad skal holdet hedde nu?: ");
+            string newTeamName = Console.ReadLine();
+            Console.Clear();
+            control.changeTeamName(teamName, newTeamName);
         }
     }
 }
